@@ -1,0 +1,30 @@
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program.  If not, see http://www.gnu.org/licenses/.
+// 
+
+package recep_placement.User;
+
+//
+// TODO auto-generated module
+//
+simple MobileNode
+{
+    parameters:
+        @display("i=block/broadcast");
+        string modelColor = default("");             // colorizes the 3D model used for the node
+        // decorations and annotations
+        string labelColor = default("#000000ff");    // the color of the model label in hex RRGGBBAA format or "" to turn off labels
+		double txRange @unit("m") = default(500m);   // the transmission range of the mobile node's radio
+		bool showTxRange = default(true);  			// whether to show the transmission range around the node     
+}
