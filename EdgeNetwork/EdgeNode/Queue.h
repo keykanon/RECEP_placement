@@ -18,7 +18,7 @@
 
 #include <omnetpp.h>
 
-#include "../message/EventPacket_m.h"
+#include "../../message/EventPacket_m.h"
 
 
 using namespace omnetpp;

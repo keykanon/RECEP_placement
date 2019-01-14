@@ -13,20 +13,21 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
+
 #include "ConnectionController.h"
 
 Define_Module(ConnectionController);
 
 ConnectionController *ConnectionController::instance = nullptr;
 
-ChannelController::ChannelController()
+ConnectionController::ConnectionController()
 {
     if (instance)
-        throw cRuntimeError("There can be only one ChannelController instance in the network");
+        throw cRuntimeError("There can be only one ConnectionController instance in the network");
     instance = this;
 }
 
-ChannelController::~ChannelController()
+ConnectionController::~ConnectionController()
 {
     instance = nullptr;
 }
@@ -47,31 +48,35 @@ void ConnectionController::handleMessage(cMessage *msg)
 }
 
 
-ChannelController *ChannelController::getInstance()
+ConnectionController *ConnectionController::getInstance()
 {
     if (!instance)
-        throw cRuntimeError("ChannelController::getInstance(): there is no ChannelController module in the network");
+        throw cRuntimeError("ConnectionController::getInstance(): there is no ConnectionController module in the network");
     return instance;
 }
 
-void ChannelController::addMobileNode(MobileNode *p)
+void ConnectionController::addMobileNode(MobileNode *p)
 {
     if (findMobileNode(p) == -1)
         nodeList.push_back(p);
 }
 
-void ChannelController::removeMobileNode(MobileNode *p)
+void ConnectionController::removeMobileNode(MobileNode *p)
 {
     int k = findMobileNode(p);
     if (k != -1)
         nodeList.erase(nodeList.begin()+k);
 }
 
-int ChannelController::findMobileNode(MobileNode *p)
+int ConnectionController::findMobileNode(MobileNode *p)
 {
     for (int i = 0; i < (int)nodeList.size(); i++)
         if (nodeList[i] == p)
             return i;
 
     return -1;
+}
+
+void ConnectionController::refreshDisplay() const{
+
 }

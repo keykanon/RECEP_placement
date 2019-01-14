@@ -17,6 +17,13 @@
 #define __RECEP_PLACEMENT_MOBILENODE_H_
 
 #include <omnetpp.h>
+#include <osgEarth/MapNode>
+#include <osgEarthAnnotation/CircleNode>
+#include <osgEarthAnnotation/FeatureNode>
+#include <osgEarthUtil/ObjectLocator>
+
+#include "IoTScene.h"
+
 
 using namespace omnetpp;
 
@@ -25,13 +32,29 @@ using namespace omnetpp;
  */
 class MobileNode : public cSimpleModule
 {
+public:
+    double getX() const  { return x; }
+   double getY() const  { return y; }
+   double getLatitude() const  { return IoTScene::getInstance()->toLatitude(y); }
+   double getLongitude() const  { return IoTScene::getInstance()->toLongitude(x); }
+   double getTxRange() const  { return txRange; }
+
   protected:
     double x, y;
-    double head;
+    double heading;
     double speed;
 
+    // configuration
+    double timeStep;
+    unsigned int trailLength;
+    std::string labelColor;
+    std::string rangeColor;
+    std::string trailColor;
+    std::string modelURL;
     bool showTxRange;
     double txRange;
+
+
 
     virtual void initialize();
     virtual void handleMessage(cMessage *msg);

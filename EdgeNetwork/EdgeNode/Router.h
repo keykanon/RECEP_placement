@@ -20,10 +20,10 @@
 
 #include <omnetpp.h>
 //#include "Packet_m.h"
-#include "../message/EventPacket_m.h"
+#include "../../message/EventPacket_m.h"
 
-#include "../placement_model/FogModel/FogNode.h"
-#include "../placement_model/FogModel/FogEdge.h"
+#include "../../placement_model/FogModel/FogNode.h"
+#include "../../placement_model/FogModel/FogEdge.h"
 
 using namespace omnetpp;
 

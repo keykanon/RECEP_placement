@@ -27,7 +27,7 @@ using namespace omnetpp;
 class ConnectionController : public cSimpleModule
 {
   protected:
-    static ChannelController *instance;
+    static ConnectionController *instance;
     std::vector<MobileNode *> nodeList;
     bool showConnections;
     std::string connectionColor;

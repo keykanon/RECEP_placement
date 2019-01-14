@@ -14,8 +14,12 @@
 // 
 
 #include "MobileNode.h"
+#include "IoTScene.h"
+#include "ConnectionController.h"
 
-Define_Module(MobileNode);
+
+
+
 
 void MobileNode::initialize()
 {
@@ -29,4 +33,12 @@ void MobileNode::initialize()
 void MobileNode::handleMessage(cMessage *msg)
 {
     // TODO - Generated method body
+}
+
+void MobileNode::refreshDisplay() const{
+
+}
+
+void MobileNode::move(){
+
 }
