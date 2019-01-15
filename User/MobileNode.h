@@ -52,7 +52,7 @@ public:
     double timeStep;
 
     //car
-    std::string modelURL;
+    //std::string modelURL;
 
     bool showTxRange;
     double txRange;

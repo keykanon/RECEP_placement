@@ -1,14 +1,14 @@
 version 2
-run Net10-0-20190115-17:09:53-18584
+run Net10-0-20190115-18:53:51-17840
 attr configname Net10
-attr datetime 20190115-17:09:53
+attr datetime 20190115-18:53:51
 attr experiment Net10
 attr inifile omnetpp.ini
 attr iterationvars ""
 attr iterationvarsf ""
 attr measurement ""
 attr network recep_placement.EdgeNetwork.Net
-attr processid 18584
+attr processid 17840
 attr repetition 0
 attr replication #0
 attr resultdir results

@@ -49,9 +49,9 @@ network Net
          	   @display("p=243,31");
         }
 		
-		scene: IoTScene{
-		    @display("p=74,31");
-		}
+		//scene: IoTScene{
+		//    @display("p=74,31");
+		//}
     connections:
         node[0].g++ <--> Link <--> node[1].g++;
         node[0].g++ <--> Link <--> node[5].g++;

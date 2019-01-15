@@ -31,7 +31,7 @@ void MobileNode::initialize()
 {
     // TODO - Generated method body
     timeStep = par("timeStep");
-    modelURL = par("modelURL").stringValue();
+    //modelURL = par("modelURL").stringValue();
 
     showTxRange = par("showTxRange");
     txRange = par("txRange");
@@ -40,7 +40,7 @@ void MobileNode::initialize()
 
     car = check_and_cast<cImageFigure*>(canvas->getFigure("car"));
 
-    ConnectionController::getInstance()->addMobileNode(this);
+    //ConnectionController::getInstance()->addMobileNode(this);
     //auto scene = IoTScene::getInstance();
 
     WATCH(timeStep);
@@ -53,7 +53,7 @@ void MobileNode::initialize()
     getParentModule()->getCanvas()->setAnimationSpeed(10, this);
     // schedule first move
    cMessage *timer = new cMessage("move");
-   scheduleAt(par("startTime"), timer);
+   scheduleAt(0, timer);
 
 }
 

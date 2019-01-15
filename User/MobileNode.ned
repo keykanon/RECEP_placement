@@ -22,7 +22,9 @@ simple MobileNode
 {
     parameters:
         @display("i=block/broadcast");
-        
+        @figure[car](type=image; image="car-top-view"; pos=0,0; anchor=c);	
+        double timeStep @unit("s") = default(60ms);  // the time granularity of movement calculation (for 30fps)
 		double txRange @unit("m") = default(500m);   // the transmission range of the mobile node's radio
 		bool showTxRange = default(true);  			// whether to show the transmission range around the node     
+
 }

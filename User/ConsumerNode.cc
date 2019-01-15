@@ -63,7 +63,7 @@ void ConsumerNode::readWaypointsFromfile(const char *fileName)
        double longitude, latitude;
        inputFile >> longitude >> latitude;
        if (!inputFile.fail())
-           waypoints.push_back(Waypoint(IoTScene::getInstance()->toX(latitude), IoTScene::getInstance()->toY(longitude), 0.0));
+           waypoints.push_back(Waypoint(latitude, longitude, 0.0));
        else
            break;
     }
@@ -71,7 +71,10 @@ void ConsumerNode::readWaypointsFromfile(const char *fileName)
 
 void ConsumerNode::move()
 {
-    Waypoint target = waypoints[targetPointIndex];
+    Waypoint target = Waypoint(x,y, MobileNode::timeStep);
+    target.x = x+20*(rand()%100-50);
+    target.y = y+20*(rand()%100-50);
+    //Waypoint target = waypoints[targetPointIndex];
     double dx = target.x - x;
     double dy = target.y - y;
     if (dx*dx + dy*dy < waypointProximity*waypointProximity)  // reached so change to next (within the predefined proximity of the waypoint)
