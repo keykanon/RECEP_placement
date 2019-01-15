@@ -23,6 +23,8 @@
 
 using namespace omnetpp;
 
+typedef cFigure::Point Point;
+
 /**
  * TODO - Generated class
  */
@@ -33,7 +35,7 @@ public:
    double getY() const  { return y; }
    double getLatitude() const  { return IoTScene::getInstance()->toLatitude(y); }
    double getLongitude() const  { return IoTScene::getInstance()->toLongitude(x); }
-   double getTxRange() const  { return txRange; }
+   double getTxRange() const { return txRange; }
 
    MobileNode();
    virtual ~MobileNode();
@@ -42,21 +44,25 @@ public:
     double x, y;
     double heading;
     double speed;
+    Point loc;
+
+    cImageFigure *car;
 
     // configuration
     double timeStep;
-    unsigned int trailLength;
-    std::string labelColor;
-    std::string rangeColor;
-    std::string trailColor;
+
+    //car
     std::string modelURL;
+
     bool showTxRange;
     double txRange;
 
 
 
-    virtual void initialize();
-    virtual void handleMessage(cMessage *msg);
+
+
+    virtual void initialize() override;
+    virtual void handleMessage(cMessage *msg) override;
     virtual void refreshDisplay() const override;
     virtual void move() = 0;
 };

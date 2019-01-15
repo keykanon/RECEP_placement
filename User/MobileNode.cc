@@ -31,18 +31,23 @@ void MobileNode::initialize()
 {
     // TODO - Generated method body
     timeStep = par("timeStep");
-    trailLength = par("trailLength");
     modelURL = par("modelURL").stringValue();
+
     showTxRange = par("showTxRange");
     txRange = par("txRange");
-    labelColor = par("labelColor").stringValue();
-    rangeColor = par("rangeColor").stringValue();
-    trailColor = par("trailColor").stringValue();
 
+    cCanvas *canvas = getParentModule()->getCanvas();
+
+    car = check_and_cast<cImageFigure*>(canvas->getFigure("car"));
 
     ConnectionController::getInstance()->addMobileNode(this);
     //auto scene = IoTScene::getInstance();
 
+    WATCH(timeStep);
+    WATCH(speed);
+    WATCH(heading);
+
+    refreshDisplay();
     // build up the node representing this module
    // an ObjectLocatorNode allows positioning a model using world coordinates
     getParentModule()->getCanvas()->setAnimationSpeed(10, this);
@@ -57,15 +62,18 @@ void MobileNode::handleMessage(cMessage *msg)
     // TODO - Generated method body
     move();
 
+
+
     refreshDisplay();
     // schedule next movement
     scheduleAt(simTime() + timeStep, msg);
 }
 
 void MobileNode::refreshDisplay() const{
-    double modelheading = fmod((360 + 90 + heading), 360) - 180;
-   double longitude = getLongitude();
-   double latitude = getLatitude();
+    cFigure::Transform t;
+    t.rotate(heading);
+    t.translate(x, y);
+    car->setTransform(t);
 
 
 

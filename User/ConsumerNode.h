@@ -22,7 +22,6 @@
 
 using namespace omnetpp;
 
-
 // a structure to store time coded waypoints
 struct Waypoint
 {
@@ -37,7 +36,6 @@ struct Waypoint
 };
 
 typedef std::vector<Waypoint> WaypointVector;
-
 /**
  * TODO - Generated class
  */
@@ -47,10 +45,10 @@ class ConsumerNode : public MobileNode
     // configuration
     WaypointVector waypoints;
 
-    double speed;
-    double  waypointProximity;
     double angularSpeed;
     int targetPointIndex;
+    double  waypointProximity;
+
 
     virtual void initialize();
     //virtual void handleMessage(cMessage *msg);

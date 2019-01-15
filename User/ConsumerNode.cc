@@ -26,7 +26,9 @@ ConsumerNode::~ConsumerNode(){
 
 void ConsumerNode::initialize()
 {
+    MobileNode::initialize();
     // TODO - Generated method body
+
     // fill the track
     const char* filename = par("trackFile");
        readWaypointsFromfile(filename);
@@ -89,4 +91,5 @@ void ConsumerNode::move()
     double distance = speed * timeStep;
     x += distance * sin(M_PI * heading / 180);
     y += distance * -cos(M_PI * heading / 180);
+
 }

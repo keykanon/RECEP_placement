@@ -48,6 +48,8 @@ void IoTScene::initialize()
 
     scene = getParentModule()->getCanvas();
     //cCanvas *builtinCanvas = getParentModule()->getCanvas();
+    cOsgCanvas* osgScene = getParentModule()->getOsgCanvas();
+
 
 
 

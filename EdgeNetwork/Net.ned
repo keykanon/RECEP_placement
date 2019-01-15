@@ -33,7 +33,7 @@ network Net
     parameters:
         int nodeNum = 10;
     	@display("bgb=396,217");
-    	
+    	@figure[car](type=image; image="car-top-view"; pos=0,0; anchor=c);	
     	int numConsumers = default(0); // the number of consumers on the street;
     submodules:
         node[10]: EdgeNode {

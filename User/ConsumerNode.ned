@@ -26,4 +26,5 @@ simple ConsumerNode extends MobileNode
         double speed @unit("mps") = default(10mps);  // the speed of the mobile nodes
         double distance @unit("m") = default(5m);      // switch to the next waypoint if the current waypoint target is closer than this
         string trackFile;                            // a file with longitude latitude pairs
+		
 }
