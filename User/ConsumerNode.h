@@ -16,18 +16,51 @@
 #ifndef __RECEP_PLACEMENT_CONSUMERNODE_H_
 #define __RECEP_PLACEMENT_CONSUMERNODE_H_
 
+
+#include "MobileNode.h"
 #include <omnetpp.h>
 
 using namespace omnetpp;
 
+
+// a structure to store time coded waypoints
+struct Waypoint
+{
+    Waypoint(double x, double y, double timestamp) {
+        this->x = x;
+        this->y = y;
+        this->timestamp = timestamp;
+    }
+    double x;
+    double y;
+    double timestamp;
+};
+
+typedef std::vector<Waypoint> WaypointVector;
+
 /**
  * TODO - Generated class
  */
-class ConsumerNode : public cSimpleModule
+class ConsumerNode : public MobileNode
 {
   protected:
+    // configuration
+    WaypointVector waypoints;
+
+    double speed;
+    double  waypointProximity;
+    double angularSpeed;
+    int targetPointIndex;
+
     virtual void initialize();
-    virtual void handleMessage(cMessage *msg);
+    //virtual void handleMessage(cMessage *msg);
+
+    virtual void move() override;
+    void readWaypointsFromfile(const char* filename);
+
+  public:
+    ConsumerNode();
+    virtual ~ConsumerNode();
 };
 
 #endif

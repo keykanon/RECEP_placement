@@ -19,26 +19,58 @@
 
 
 
+MobileNode::MobileNode()
+{
+}
 
+MobileNode::~MobileNode()
+{
+}
 
 void MobileNode::initialize()
 {
     // TODO - Generated method body
+    timeStep = par("timeStep");
+    trailLength = par("trailLength");
+    modelURL = par("modelURL").stringValue();
     showTxRange = par("showTxRange");
     txRange = par("txRange");
+    labelColor = par("labelColor").stringValue();
+    rangeColor = par("rangeColor").stringValue();
+    trailColor = par("trailColor").stringValue();
+
 
     ConnectionController::getInstance()->addMobileNode(this);
+    //auto scene = IoTScene::getInstance();
+
+    // build up the node representing this module
+   // an ObjectLocatorNode allows positioning a model using world coordinates
+    getParentModule()->getCanvas()->setAnimationSpeed(10, this);
+    // schedule first move
+   cMessage *timer = new cMessage("move");
+   scheduleAt(par("startTime"), timer);
+
 }
 
 void MobileNode::handleMessage(cMessage *msg)
 {
     // TODO - Generated method body
+    move();
+
+    // schedule next movement
+    scheduleAt(simTime() + timeStep, msg);
 }
 
 void MobileNode::refreshDisplay() const{
+    double modelheading = fmod((360 + 90 + heading), 360) - 180;
+   double longitude = getLongitude();
+   double latitude = getLatitude();
 
+
+
+   // update the position on the 2D canvas, too
+   getDisplayString().setTagArg("p", 0, x);
+   getDisplayString().setTagArg("p", 1, y);
 }
 
-void MobileNode::move(){
 
-}

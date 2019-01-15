@@ -39,6 +39,9 @@ public:
    double getLongitude() const  { return IoTScene::getInstance()->toLongitude(x); }
    double getTxRange() const  { return txRange; }
 
+   MobileNode();
+   virtual ~MobileNode();
+
   protected:
     double x, y;
     double heading;

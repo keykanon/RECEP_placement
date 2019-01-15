@@ -33,12 +33,36 @@ IoTScene::~IoTScene()
     instance = nullptr;
 }
 
+IoTScene *IoTScene::getInstance()
+{
+    if (!instance)
+        throw cRuntimeError("OsgEarthScene::getInstance(): there is no OsgEarthScene module in the network");
+    return instance;
+}
+
 void IoTScene::initialize()
 {
     // TODO - Generated method body
+    double centerLongitude = toLongitude(playgroundWidth/2);
+    double centerLatitude = toLatitude(playgroundHeight/2);
+
+    scene = getParentModule()->getCanvas();
+    //cCanvas *builtinCanvas = getParentModule()->getCanvas();
+    playgroundLat = getSystemModule()->par("playgroundLatitude");
+   playgroundLon = getSystemModule()->par("playgroundLongitude");
+   playgroundHeight = getSystemModule()->par("playgroundHeight");
+   playgroundWidth = getSystemModule()->par("playgroundWidth");
+
+
+
+
+
+
 }
 
 void IoTScene::handleMessage(cMessage *msg)
 {
     // TODO - Generated method body
+    throw cRuntimeError("This module does not handle messages from the outside");
+
 }

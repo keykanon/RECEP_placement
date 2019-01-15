@@ -17,7 +17,8 @@
 #define __RECEP_PLACEMENT_IOTSCENE_H_
 
 #include <omnetpp.h>
-
+#include <osg/Node>
+#include <osgEarth/MapNode>
 
 using namespace omnetpp;
 
@@ -31,7 +32,10 @@ class IoTScene : public cSimpleModule
     double playgroundLon;
     double playgroundHeight;
     double playgroundWidth;
+
     static IoTScene *instance;
+
+    cCanvas *scene;
 
     virtual void initialize();
     virtual void handleMessage(cMessage *msg);
@@ -42,6 +46,8 @@ class IoTScene : public cSimpleModule
 
     static IoTScene *getInstance();
 
+    //get the canvas of IoTScene
+    virtual cCanvas* getScene(){return scene;}
     // latitude from local y coordinate
     virtual double toLatitude(double y) { return playgroundLat - y / 111111; }
     // longitude from local x coordinate
