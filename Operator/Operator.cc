@@ -39,9 +39,6 @@ void Operator::initialize()
     destAddresses = cStringTokenizer(par("destAddresses").stdstringValue().c_str()).asIntVector();
     myAddress = par("address").longValue();
     lambda = par("lambda").doubleValue();
-    sleepTime = &par("sleepTime");
-    burstTime = &par("burstTime");
-    sendIATime = &par("sendIaTime");
     packetLengthBytes = &par("packetLength");
 
     endToEndDelaySignal = registerSignal("endToEndDelay");

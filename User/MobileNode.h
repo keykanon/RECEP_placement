@@ -17,10 +17,6 @@
 #define __RECEP_PLACEMENT_MOBILENODE_H_
 
 #include <omnetpp.h>
-#include <osgEarth/MapNode>
-#include <osgEarthAnnotation/CircleNode>
-#include <osgEarthAnnotation/FeatureNode>
-#include <osgEarthUtil/ObjectLocator>
 
 #include "IoTScene.h"
 

@@ -23,7 +23,7 @@ simple Operator
     int address;
     string destAddresses;  // destination addresses
     double lambda @unit(ms) = default(10ms);// the execution rate 
-    bool showOperator;
+    bool showOperator = true;
     volatile int packetLength @unit(byte); // length of a message
     @display("i=block/source");
     @signal[endToEndDelay](type="simtime_t");

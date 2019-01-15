@@ -78,5 +78,20 @@ int ConnectionController::findMobileNode(MobileNode *p)
 }
 
 void ConnectionController::refreshDisplay() const{
+    if (!showConnections)
+           return;
 
+    cPathFigure* fig = new cPathFigure();
+    for (int i = 0; i < (int)nodeList.size(); ++i) {
+        for (int j = i+1; j < (int)nodeList.size(); ++j) {
+            MobileNode *pi = nodeList[i];
+            MobileNode *pj = nodeList[j];
+            double ix = pi->getX(), iy = pi->getY(), jx = pj->getX(), jy = pj->getY();
+            if (pi->getTxRange()*pi->getTxRange() > (ix-jx)*(ix-jx)+(iy-jy)*(iy-jy)) {
+                fig->addLineRel(ix, iy);
+                fig->addLineRel(jx, jy);
+                IoTScene::getInstance()->getCanvas()->addFigure(fig);
+            }
+        }
+    }
 }

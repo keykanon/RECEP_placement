@@ -19,6 +19,7 @@ import recep_placement.Operator.Operator;
 import recep_placement.EdgeNetwork.EdgeNode.EdgeNode;
 import recep_placement.User.ConsumerNode;
 import recep_placement.User.ConnectionController;
+import recep_placement.User.IoTScene;
 
 channel Link extends ned.DatarateChannel {
     parameters:
@@ -48,6 +49,9 @@ network Net
          	   @display("p=243,31");
         }
 		
+		scene: IoTScene{
+		    @display("p=74,31");
+		}
     connections:
         node[0].g++ <--> Link <--> node[1].g++;
         node[0].g++ <--> Link <--> node[5].g++;

@@ -27,7 +27,7 @@ network EdgeNode
         @display("i=abstract/router_vs");
     gates:
         inout g[];
-        inout es;
+        //inout es;
 
     submodules:
         operator[capacity]: Operator {
@@ -75,5 +75,5 @@ network EdgeNode
 			//routing.gate[i] <--> g[i];
         }
 
-        routing.eventStorage <--> es;
+        //routing.eventStorage <--> es;
 }

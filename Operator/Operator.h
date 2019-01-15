@@ -33,9 +33,6 @@ class Operator : public cSimpleModule
     int myAddress;
     double lambda;
     std::vector<int> destAddresses;
-    cPar *sleepTime;
-    cPar *burstTime;
-    cPar *sendIATime;
     cPar *packetLengthBytes;
 
     int pkCounter;

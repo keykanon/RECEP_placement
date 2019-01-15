@@ -57,6 +57,7 @@ void MobileNode::handleMessage(cMessage *msg)
     // TODO - Generated method body
     move();
 
+    refreshDisplay();
     // schedule next movement
     scheduleAt(simTime() + timeStep, msg);
 }

@@ -48,10 +48,7 @@ void IoTScene::initialize()
 
     scene = getParentModule()->getCanvas();
     //cCanvas *builtinCanvas = getParentModule()->getCanvas();
-    playgroundLat = getSystemModule()->par("playgroundLatitude");
-   playgroundLon = getSystemModule()->par("playgroundLongitude");
-   playgroundHeight = getSystemModule()->par("playgroundHeight");
-   playgroundWidth = getSystemModule()->par("playgroundWidth");
+
 
 
 

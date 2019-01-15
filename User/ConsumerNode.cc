@@ -28,8 +28,16 @@ void ConsumerNode::initialize()
 {
     // TODO - Generated method body
     // fill the track
-        readWaypointsFromfile(par("trackFile"));
+    const char* filename = par("trackFile");
+       readWaypointsFromfile(filename);
        // initial location
+
+       if(waypoints.size() == 0){
+           x = 0;
+           y = 0;
+           return;
+       }
+
        targetPointIndex = 0;
        x = waypoints[targetPointIndex].x;
        y = waypoints[targetPointIndex].y;
